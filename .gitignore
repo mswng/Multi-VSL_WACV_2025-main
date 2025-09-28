@@ -1,0 +1,37 @@
+log
+__pycache__
+checkpoints
+*pycache*
+*init*
+out-img
+*.mp4
+inference_config/*.onnx
+cc*
+pretrained_models
+*.pt
+receivedVideo
+wandb
+# pretrained_models checkpoints in Drive
+# temporary
+*.pkl
+data/VN_SIGN/full_data_200_400.csv
+CK
+data/label_1_200/*.py
+data/label_1_400/EDA.ipynb
+data/200_sign_words.csv
+Embedding
+label_predictions_1view.csv
+label_predictions_3view.csv
+*.ipynb
+/data/200_sign_words.csv
+/data/label_1_200/process_fc
+/data/label_1_200/EDA.ipynb
+**/data/*.py
+/data/labels_400_1000.csv
+data/processed_video_url
+data/labels
+data/200_sign_words.csv
+configs/ablation_study
+configs/hand_crop
+configs/Knowledge_Distillation
+configs/visual_prompt_tuning
