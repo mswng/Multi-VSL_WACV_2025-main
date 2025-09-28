@@ -17,6 +17,10 @@ Recognition models utilizing on our dataset. The findings indicate that utilizin
 performance improvement of up to 19.75% compared to
 models trained on single-view data.
 
+## Folder all data and checkpoints
+Download link: https://drive.google.com/drive/folders/1YY9Eu52r8xi0KCUtO36U0dF8iplQxcce?usp=drive_link
+
+
 ## Data
 Video data download link: https://drive.google.com/drive/folders/1yUU1m2hy_CjaXDDoR_6i9Y3T1XL2pD4C?usp=sharing
 
