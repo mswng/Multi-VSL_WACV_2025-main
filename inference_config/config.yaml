@@ -44,8 +44,8 @@ training:
   lr_scheduler: StepLR
   top_k: 5
   print_stats: true
-  pretrained: true
-  pretrained_model: checkpoints/vtn_one_modality/vtn_vn_sign_cls/last_checkpoints2.pth # contrastive checkpoints
+  pretrained: false
+  # pretrained_model: checkpoints/vtn_one_modality/vtn_vn_sign_cls/last_checkpoints2.pth # contrastive checkpoints
   # pretrained_model: /mnt/disk1/anhnct/HAR/principal_har/checkpoints/vtn/vtn_transfer_for_cls/checkpoints.pth
   lr_step_size: 5
   gamma: 0.5
