@@ -392,11 +392,10 @@ def load_model(cfg):
                 new_state_dict[key] = value
             model.load_state_dict(new_state_dict)
         
-        
-  
-
-
-
+    # fallback cuối cùng nếu model chưa được gán
+    if model is None:
+        print(f"[Warning] Unknown model_name {cfg['data'].get('model_name','None')}, dùng default VTNHCPF")
+        model = VTNHCPF(**cfg.get('model', {}), sequence_length=cfg['data']['num_output_frames'])    
 
     assert model is not None
     print("loaded model")
