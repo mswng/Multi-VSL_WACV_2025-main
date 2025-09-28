@@ -1,16 +1,18 @@
+# /content/Multi-VSL_WACV_2025/inference_config/config_train_colab.yaml
 task: ISLR
+
 data:
   model_name: vtn_one_modality
-  base_url: data/VN_SIGN
+  base_url: /content/Multi-VSL_WACV_2025/data/VN_SIGN
   dataset_name: VN_SIGN
   temporal_stride: 2
   num_output_frames: 16
   transform_cfg:
     index_setting:
-      - segment #train_p
-      - pad #train_m
-      - segment #test_p
-      - pad #test_m
+      - segment  # train positive
+      - pad      # train negative
+      - segment  # test positive
+      - pad      # test negative
   vid_transform:
     IMAGE_SIZE: 224
     NORM_MEAN_IMGNET: [0.485, 0.456, 0.406]
@@ -19,19 +21,21 @@ data:
   WRIST_DELTA: 0.15
   label_folder: label_1_200
   data_type: 1_200_center_ord1
+
 training:
   label_smoothing: 0
-  device: cuda:2
+  device: cuda:0
   overwrite: true
   log_freq: 1
   experiment_name: "vtn_vn_sign_cls"
-  model_dir: results/vtn/vn_sign
+  model_dir: /content/drive/MyDrive/Myapp/results/vtn/vn_sign
+  log_dir: /content/drive/MyDrive/Myapp/logs/vtn_vn_sign_cls
   random_seed: 42
   shuffle: True
   num_workers: 4
   prefetch_factor: 4
-  batch_size: 4 #to-debug!
-  total_epoch: 300 #to-debug!
+  batch_size: 4
+  total_epoch: 300
   learning_rate: 0.0001
   save_checkpoints: true
   scheduler_factor: 0.1
@@ -45,8 +49,7 @@ training:
   top_k: 5
   print_stats: true
   pretrained: false
-  # pretrained_model: checkpoints/vtn_one_modality/vtn_vn_sign_cls/last_checkpoints2.pth # contrastive checkpoints
-  # pretrained_model: /mnt/disk1/anhnct/HAR/principal_har/checkpoints/vtn/vtn_transfer_for_cls/checkpoints.pth
+  pretrained_model: ""  # để trống nếu muốn train từ đầu
   lr_step_size: 5
   gamma: 0.5
   num_accumulation_steps: 4
@@ -63,12 +66,13 @@ training:
 
 inference:
   batch_size: 8
+
 model:
   num_classes: 199
   num_heads: 8
   num_layers: 4
   embed_size: 512
   cnn: rn34
-  freeze_layers: 0 # free layers in cnn
+  freeze_layers: 0
   dropout: 0.1
   training_type: cls
